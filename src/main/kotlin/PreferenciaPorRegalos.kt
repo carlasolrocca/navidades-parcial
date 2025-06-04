@@ -13,7 +13,7 @@ class PersonaConformista : PreferenciaPorRegalos {
 class PersonaInteresada : PreferenciaPorRegalos {
     override fun aceptaRegalo(regalo: Regalo): Boolean {
         val precioBase = 5000
-        return regalo.precio >= precioBase
+        return regalo.valor >= precioBase
     }
 }
 
