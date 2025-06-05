@@ -1,5 +1,19 @@
 // *** OBSERVER REGALO ENTREGADO ***
+/*Los observers/interesados son todos polimorficos por implementar una interfaz comun.
+  (o) Responden a un MISMO EVENTO --> Cuando se entrega el regalo
+  (o) Tienen que tener un metodo que sea coherente para todos
+  Hay varios Observers:
+  1. NotificacionPersona: envia un mail a la persona notificando que su regalo fue entregado
+  2. NotificacionFletes: recibe un mail (?) con los siguientes datos
+         2.1 recibe el regalo
+         2.2 la direccion del cliente
+         2.3 nombre del cliente
+         2.4 DNI
+         2.5 codigo del regalo (c/u tiene el suyo)
+  3. NotificacionRegaloCaro: si el regalo vale >$10000, se pide que le modifique el criterio de persona A INTERESADA
+                             por un monto $5000. No es lo que hace el strategy de PersonaInteresada, nunca se explicito un tope.
+*/
 
 interface RegaloObserver {
-    fun execute()
+    fun NotificacionRegalo(regalo : Regalo, persona: Persona)
 }
