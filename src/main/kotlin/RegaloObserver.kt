@@ -35,3 +35,11 @@ class NotificacionRegaloCaro : RegaloObserver {
         //to do
     }
 }
+
+
+//Los observers van a necesitar un MailSender y una data class Mail que represente el formato
+interface MailSender {
+    fun sendMail(mail: Mail)
+}
+
+data class Mail(val from : String, val to : String, val subject : String, val content : String)
