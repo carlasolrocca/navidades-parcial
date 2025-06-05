@@ -35,7 +35,6 @@ class Juguete(nombre : String, marca : String, valor: Double, val fechaLanzamien
 
 //Si es de origen extranjero
 class Perfume(nombre : String, marca : String, valor: Double, val origen : OrigenRegalo) : Regalo(nombre, marca, valor) {
-
     override fun criterioEsValioso(): Boolean = origen == OrigenRegalo.EXTRANJERO
 }
 
@@ -48,8 +47,11 @@ class Experiencia(nombre : String, marca : String, valor: Double, val diaExperie
 //Los Vouchers NO son valiosos, tienen seteada la marca en "Pappap" y el valor en 2000.0
 class Voucher(nombre : String = "Voucher consuelo", marca : String = "Pappap", valor: Double = 2000.0) : Regalo(nombre, marca, valor){
     override fun criterioEsValioso(): Boolean = false
+//el al tm no le hace metodo a la cond gral y le redefine aca el metodo gral esValioso() para que sea falso
+    //te atajas a si cambia el tm
 }
 
+//Podria ser un boolean para que sea más simple.
 enum class OrigenRegalo {
     NACIONAL,
     EXTRANJERO

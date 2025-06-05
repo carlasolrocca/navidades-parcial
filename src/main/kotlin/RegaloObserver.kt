@@ -12,13 +12,14 @@
          2.5 codigo del regalo (c/u tiene el suyo)
   3. NotificacionRegaloCaro: si el regalo vale >$10000, se pide que le modifique el criterio de persona A INTERESADA
                              por un monto $5000. No es lo que hace el strategy de PersonaInteresada, nunca se explicito un tope.
+                             le cambia el criterio!! a interesada y con 5000
 */
 
 interface RegaloObserver {
     fun NotificacionRegalo(regalo : Regalo, persona: Persona)
 }
 
-class NotificacionPersona(val mailSender : MailSender) : RegaloObserver{
+class NotificacionPersona(val mailSender : MailSender) : RegaloObserver{ //podria haber sido un lateinit el mailSender
     override fun NotificacionRegalo(regalo: Regalo, persona: Persona) {
         mailSender.sendMail(
             Mail(from = "ventas-papapp@gmail.com",

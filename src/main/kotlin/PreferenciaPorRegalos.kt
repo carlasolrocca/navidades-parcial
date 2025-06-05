@@ -40,3 +40,4 @@ class PreferenciaCombinada(var preferencias : MutableSet<PreferenciaPorRegalos> 
 }
 
 //en el combinado deberia tener las preferencias adentro como atributo + un metodo de agregar criterios
+//si lo paso x constructor la persona deberia conocer todos los criterios. si agrego el metodo de agregar deberia ser una Lista!!
