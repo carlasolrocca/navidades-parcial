@@ -20,20 +20,35 @@ interface RegaloObserver {
 
 class NotificacionPersona(val mailSender : MailSender) : RegaloObserver{
     override fun NotificacionRegalo(regalo: Regalo, persona: Persona) {
-        //to do
+        mailSender.sendMail(
+            Mail(from = "ventas-papapp@gmail.com",
+                to = persona.email,
+                subject = "Felicidades ${persona.nombre}! Llego tu regalo!",
+                content = "Te notificamos que tu regalo ${regalo.nombre} fue entregado!")
+        )
     }
 }
 
 class NotificacionFlete(val notificadorFlete : InfoEnvioFlete) : RegaloObserver {
     override fun NotificacionRegalo(regalo: Regalo, persona: Persona) {
-        //to do
+        notificadorFlete.sendNotificacionFlete(
+            DatosNotificacionFlete(
+                regalo = regalo,
+                codigoRegalo = regalo.codigo,
+                cliente = persona,
+                DNI = persona.DNI,
+                direccion = persona.direccion
+            )
+        )
     }
 }
 
 //Si le modifico el monto, mi strategy deberia recibir un nro que sea tope???? pero se basa en un monto BASE en adelante!!!!!
 class NotificacionRegaloCaro : RegaloObserver {
     override fun NotificacionRegalo(regalo: Regalo, persona: Persona) {
-        //to do
+        if(regalo.valor > 10000.0){
+            persona.preferenciaRegalos = PersonaInteresada(5000.0)
+        }
     }
 }
 

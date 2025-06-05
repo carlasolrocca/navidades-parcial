@@ -2,8 +2,9 @@ import java.time.DayOfWeek
 import java.time.LocalDate
 
 abstract class Regalo(
+    val nombre : String = "",
     val marca : String = "",
-    val valor : Double = 0.0,
+    val valor : Double = 0.0,       //valor es precio
 ){
     val codigo : Int = 1234
 
