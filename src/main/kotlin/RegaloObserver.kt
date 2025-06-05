@@ -17,3 +17,21 @@
 interface RegaloObserver {
     fun NotificacionRegalo(regalo : Regalo, persona: Persona)
 }
+
+class NotificacionPersona : RegaloObserver{
+    override fun NotificacionRegalo(regalo: Regalo, persona: Persona) {
+        //to do
+    }
+}
+
+class NotificacionFlete : RegaloObserver {
+    override fun NotificacionRegalo(regalo: Regalo, persona: Persona) {
+        //to do
+    }
+}
+
+class NotificacionRegaloCaro : RegaloObserver {
+    override fun NotificacionRegalo(regalo: Regalo, persona: Persona) {
+        //to do
+    }
+}

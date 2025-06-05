@@ -37,4 +37,12 @@ class Administrador {
         }
     }
 
+    //Metodos para agregarle dinamismo a la lista de observers
+    fun agregarObserver(observer : RegaloObserver){
+        regalosObservers.add(observer)
+    }
+
+    fun eliminarObserver(observer : RegaloObserver){
+        regalosObservers.remove(observer)
+    }
 }
