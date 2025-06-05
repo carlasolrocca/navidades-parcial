@@ -4,9 +4,9 @@
   (o) Tienen que tener un metodo que sea coherente para todos
   Hay varios Observers:
   1. NotificacionPersona: envia un mail a la persona notificando que su regalo fue entregado
-  2. NotificacionFletes: recibe un mail (?) con los siguientes datos
+  2. NotificacionFletes: recibe una notificacion con los siguientes datos
          2.1 recibe el regalo
-         2.2 la direccion del cliente
+         2.2 la direccion del cliente          (el 1 y 2 envian notificaciones DIFERENTES!!!!!!!!)
          2.3 nombre del cliente
          2.4 DNI
          2.5 codigo del regalo (c/u tiene el suyo)
@@ -37,9 +37,18 @@ class NotificacionRegaloCaro : RegaloObserver {
 }
 
 
-//Los observers van a necesitar un MailSender y una data class Mail que represente el formato
+/*Los observers van a necesitar:
+    un MailSender y una data class Mail que represente el formato del Mail para la Persona
+    un InfoEnvioFlete y una data class DatosNotificacionFlete que envie los datos a la Empresa de Fletes
+*/
+
 interface MailSender {
     fun sendMail(mail: Mail)
 }
 
+interface InfoEnvioFlete {
+    fun sendNotificacionFlete(notificacion : DatosNotificacionFlete)
+}
+
 data class Mail(val from : String, val to : String, val subject : String, val content : String)
+data class DatosNotificacionFlete(val regalo : Regalo, val codigoRegalo : Int, val cliente : Persona, val DNI : Int, val direccion : String)
