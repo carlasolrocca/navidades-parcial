@@ -4,7 +4,7 @@ import java.time.LocalDate
 abstract class Regalo(
     val nombre : String = "",
     val marca : String = "",
-    val valor : Double = 0.0,       //valor es precio
+    val valor : Double = 0.0,
 ){
     val codigo : Int = 1234
 
@@ -21,7 +21,7 @@ abstract class Regalo(
 // *** Subclases de Regalo ***
 
 //Si la marca está en la lista, es valioso
-class Ropa(marca : String, valor : Double) : Regalo(marca, valor) {
+class Ropa(nombre : String, marca : String, valor : Double) : Regalo(nombre, marca, valor) {
     override fun criterioEsValioso(): Boolean {
         val listaMarcasValiosas = mutableListOf("Jordache", "Lee", "Charro", "Motor Oil")
         return listaMarcasValiosas.contains(marca)
@@ -29,24 +29,24 @@ class Ropa(marca : String, valor : Double) : Regalo(marca, valor) {
 }
 
 //Si se lanzaron antes del año 2000
-class Juguete(marca : String, valor: Double, val fechaLanzamiento : LocalDate) : Regalo(marca, valor) {
+class Juguete(nombre : String, marca : String, valor: Double, val fechaLanzamiento : LocalDate) : Regalo(nombre, marca, valor) {
     override fun criterioEsValioso(): Boolean = fechaLanzamiento.isBefore(LocalDate.of(2000, 1, 1))
 }
 
 //Si es de origen extranjero
-class Perfume(marca : String, valor: Double, val origen : OrigenRegalo) : Regalo(marca, valor) {
+class Perfume(nombre : String, marca : String, valor: Double, val origen : OrigenRegalo) : Regalo(nombre, marca, valor) {
 
     override fun criterioEsValioso(): Boolean = origen == OrigenRegalo.EXTRANJERO
 }
 
 //Si la experiencia es un viernes
-class Experiencia(marca : String, valor: Double, val diaExperiencia : LocalDate) : Regalo(marca, valor) {
+class Experiencia(nombre : String, marca : String, valor: Double, val diaExperiencia : LocalDate) : Regalo(nombre, marca, valor) {
     override fun criterioEsValioso(): Boolean = diaExperiencia.dayOfWeek == DayOfWeek.FRIDAY
 }
 
 //Cambie "precio" por "valor" porque el Voucher tmb es un Regalo y no me servia tener un precio
 //Los Vouchers NO son valiosos, tienen seteada la marca en "Pappap" y el valor en 2000.0
-class Voucher(marca : String = "Pappap", valor: Double = 2000.0) : Regalo(marca, valor){
+class Voucher(nombre : String, marca : String = "Pappap", valor: Double = 2000.0) : Regalo(nombre, marca, valor){
     override fun criterioEsValioso(): Boolean = false
 }
 
