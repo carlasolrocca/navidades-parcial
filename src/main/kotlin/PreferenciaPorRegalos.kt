@@ -38,3 +38,5 @@ class PreferenciaCombinada(var preferencias : MutableSet<PreferenciaPorRegalos> 
         return preferencias.any { it.aceptaRegalo(regalo) }
     }
 }
+
+//en el combinado deberia tener las preferencias adentro como atributo + un metodo de agregar criterios

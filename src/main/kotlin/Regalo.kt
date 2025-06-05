@@ -22,8 +22,8 @@ abstract class Regalo(
 
 //Si la marca está en la lista, es valioso
 class Ropa(nombre : String, marca : String, valor : Double) : Regalo(nombre, marca, valor) {
+    val listaMarcasValiosas = mutableListOf("Jordache", "Lee", "Charro", "Motor Oil")
     override fun criterioEsValioso(): Boolean {
-        val listaMarcasValiosas = mutableListOf("Jordache", "Lee", "Charro", "Motor Oil")
         return listaMarcasValiosas.contains(marca)
     }
 }
