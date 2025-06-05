@@ -18,18 +18,19 @@ interface RegaloObserver {
     fun NotificacionRegalo(regalo : Regalo, persona: Persona)
 }
 
-class NotificacionPersona : RegaloObserver{
+class NotificacionPersona(val mailSender : MailSender) : RegaloObserver{
     override fun NotificacionRegalo(regalo: Regalo, persona: Persona) {
         //to do
     }
 }
 
-class NotificacionFlete : RegaloObserver {
+class NotificacionFlete(val notificadorFlete : InfoEnvioFlete) : RegaloObserver {
     override fun NotificacionRegalo(regalo: Regalo, persona: Persona) {
         //to do
     }
 }
 
+//Si le modifico el monto, mi strategy deberia recibir un nro que sea tope???? pero se basa en un monto BASE en adelante!!!!!
 class NotificacionRegaloCaro : RegaloObserver {
     override fun NotificacionRegalo(regalo: Regalo, persona: Persona) {
         //to do

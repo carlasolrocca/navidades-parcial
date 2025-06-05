@@ -10,10 +10,10 @@ class PersonaConformista : PreferenciaPorRegalos {
 }
 
 //Quieren que el regalo cueste más de una cierta cantidad de $$$
-class PersonaInteresada : PreferenciaPorRegalos {
+class PersonaInteresada(val montoTope : Int) : PreferenciaPorRegalos {
     override fun aceptaRegalo(regalo: Regalo): Boolean {
         val precioBase = 5000
-        return regalo.valor >= precioBase
+        return regalo.valor >= precioBase && regalo.valor <= montoTope  //Modificado en base a Punto 3 de la consigna: define una base dentro y luego un tope por constructor.
     }
 }
 
