@@ -46,7 +46,7 @@ class Experiencia(nombre : String, marca : String, valor: Double, val diaExperie
 
 //Cambie "precio" por "valor" porque el Voucher tmb es un Regalo y no me servia tener un precio
 //Los Vouchers NO son valiosos, tienen seteada la marca en "Pappap" y el valor en 2000.0
-class Voucher(nombre : String, marca : String = "Pappap", valor: Double = 2000.0) : Regalo(nombre, marca, valor){
+class Voucher(nombre : String = "Voucher consuelo", marca : String = "Pappap", valor: Double = 2000.0) : Regalo(nombre, marca, valor){
     override fun criterioEsValioso(): Boolean = false
 }
 
